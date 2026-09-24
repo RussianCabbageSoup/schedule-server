@@ -6,9 +6,11 @@ class UserController {
         try {
             const { username, password } = req.body;
 
-            await UserService.createUser(username, password);
+            const user = await UserService.createUser(username, password);
 
-            return res.json({ user: username });
+            return res.json({
+                username: user.username
+            });
         } catch (error) {
             next(error);
         }

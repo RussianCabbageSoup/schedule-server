@@ -15,6 +15,10 @@ export default class ApiError extends Error {
         return new ApiError(404, message);
     }
 
+    static conflict(message: string) {
+        return new ApiError(409, message);
+    }
+
     static validation(message: string) {
         return new ApiError(422, message);
     }
