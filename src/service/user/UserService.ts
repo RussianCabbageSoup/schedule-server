@@ -7,8 +7,8 @@ import type { Request, Response } from "express";
 class UserService {
     async createUser(username: string, password: string, res: Response) {
         const candidate = await db.orm.public.User
-        .where(u => u.username.eq(username))
-        .first();
+            .where(u => u.username.eq(username))
+            .first();
 
         if (candidate) {
             throw ApiError.conflict('Пользователь с такие именем уже существует');
