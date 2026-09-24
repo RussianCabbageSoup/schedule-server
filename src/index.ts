@@ -5,6 +5,7 @@ import router from "./routes/index.js";
 import errorHandler from "./middleware/error/errorHandler.js";
 import notFound from "./middleware/error/notFound.js";
 import { networkOptions } from "./config/config.js";
+import checkEnv from "./checkServer/checkEnv.js";
 
 const PORT = networkOptions.PORT;
 
@@ -20,6 +21,7 @@ app.use(errorHandler);
 
 const start = async () => {
     try {
+        checkEnv();
         app.listen(PORT, () => console.log(`started on ${PORT}`));
     } catch (error) {
         console.error('Failed to start: ', error);

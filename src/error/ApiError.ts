@@ -22,4 +22,8 @@ export default class ApiError extends Error {
     static validation(message: string) {
         return new ApiError(422, message);
     }
+
+    static internal(message: string) {
+        return new ApiError(500, message);
+    }
 }

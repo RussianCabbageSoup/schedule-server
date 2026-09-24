@@ -117,7 +117,7 @@
               "expireAt": {
                 "nullable": false,
                 "type": {
-                  "codecId": "pg/timestamp-temporal@1",
+                  "codecId": "pg/timestamp-string@1",
                   "kind": "scalar"
                 }
               },
@@ -129,6 +129,13 @@
                   "typeParams": {
                     "length": 36
                   }
+                }
+              },
+              "token": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
                 }
               },
               "userId": {
@@ -170,6 +177,9 @@
                 },
                 "id": {
                   "column": "id"
+                },
+                "token": {
+                  "column": "token"
                 },
                 "userId": {
                   "column": "userId"
@@ -332,7 +342,7 @@
                   "nullable": false
                 },
                 "expireAt": {
-                  "codecId": "pg/timestamp-temporal@1",
+                  "codecId": "pg/timestamp-string@1",
                   "nativeType": "timestamp",
                   "nullable": false
                 },
@@ -343,6 +353,11 @@
                   "typeParams": {
                     "length": 36
                   }
+                },
+                "token": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
                 },
                 "userId": {
                   "codecId": "sql/char@1",
@@ -407,7 +422,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "53d1506e764bf9b7a7f78988265893690749a1fb4b7c49e00ff7cc1d95794ab8"
+    "storageHash": "7b0013bc9ec588f44e3eca572d03be976bec2981c497af72760325f829c0fad6"
   },
   "execution": {
     "executionHash": "1cee1bf3e71b7af0e06895b71d70263c92626c0caf9cd312d55c4aad6d4efd41",

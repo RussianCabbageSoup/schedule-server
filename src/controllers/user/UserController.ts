@@ -6,7 +6,7 @@ class UserController {
         try {
             const { username, password } = req.body;
 
-            const user = await UserService.createUser(username, password);
+            const user = await UserService.createUser(username, password, res);
 
             return res.json({
                 username: user.username

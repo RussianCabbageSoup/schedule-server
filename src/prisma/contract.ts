@@ -24,7 +24,8 @@ export const contract = defineContract({}, ({ field, model, rel }) => {
     fields: {
       id: field.id.uuidv7String(),
       userId: field.uuidString(),
-      expireAt: field.temporal.timestamp(),
+      token: field.text(),
+      expireAt: field.temporal.timestampString(),
       createdAt: field.temporal.createdAtString()
     }
   });
