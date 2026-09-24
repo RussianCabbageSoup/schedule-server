@@ -9,7 +9,8 @@
     "build": "tsc",
     "build-force": "node ./node_modules/typescript/lib/tsc.js",
     "postinstall": "prisma skills sync || exit 0",
-    "contract:emit": "prisma contract emit"
+    "contract:emit": "prisma contract emit",
+    "migrate": "prisma db migrate" 
   },
   "keywords": [],
   "author": "",
