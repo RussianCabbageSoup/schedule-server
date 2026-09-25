@@ -1,9 +1,9 @@
-import { generateJWT, generateRefreshToken, setCookies } from "../../utils/auth";
+import { generateJWT, generateRefreshToken, setCookies } from "../../utils/auth.js";
 import type { Contract } from "../../prisma/contract.d";
 import type { DefaultModelRow } from "@prisma/orm-postgres/orm-client";
-import RefreshTokenService from "./RefreshTokenService";
+import RefreshTokenService from "./RefreshTokenService.js";
 import type { Response } from "express";
-import type { Transaction } from "../../prisma/db";
+import type { Transaction } from "../../prisma/db.js";
 
 class AuthService {
     async createSession(

@@ -1,4 +1,4 @@
-import ApiError from "../error/ApiError";
+import ApiError from "../error/ApiError.js";
 
 export default function checkEnv() {
     if (!process.env.JWT_SECRET) {

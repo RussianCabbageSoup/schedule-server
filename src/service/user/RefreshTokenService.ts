@@ -1,8 +1,8 @@
 import type { Char } from "@prisma/orm-postgres/target/codec-types";
-import { db, type Transaction } from "../../prisma/db";
-import ApiError from "../../error/ApiError";
-import { hashToken } from "../../utils/auth";
-import AuthService from "./AuthService";
+import { db, type Transaction } from "../../prisma/db.js";
+import ApiError from "../../error/ApiError.js";
+import { hashToken } from "../../utils/auth.js";
+import AuthService from "./AuthService.js";
 import type { Response } from "express";
 
 class RefreshTokenService {

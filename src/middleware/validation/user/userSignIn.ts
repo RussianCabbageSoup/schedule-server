@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
-import { validateString } from "../../../utils/validators";
-import ApiError from "../../../error/ApiError";
+import { validateString } from "../../../utils/validators.js";
+import ApiError from "../../../error/ApiError.js";
 
 export default function userSignIn(req: Request, res: Response, next: NextFunction) {
     try {

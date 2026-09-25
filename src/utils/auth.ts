@@ -1,10 +1,10 @@
 import type { DefaultModelRow } from "@prisma/orm-postgres/orm-client";
 import jwt from "jsonwebtoken";
 import type { Contract } from "../prisma/contract.d";
-import ApiError from "../error/ApiError";
+import ApiError from "../error/ApiError.js";
 import crypto from "crypto";
 import type { Response } from "express";
-import { cookieOptions } from "../config/config";
+import { cookieOptions } from "../config/config.js";
 import bcrypt from "bcrypt";
 
 export const generateJWT = (user: DefaultModelRow<Contract, "User", "public">) => {

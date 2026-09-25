@@ -1,6 +1,6 @@
 import cors, { type CorsOptions } from "cors";
-import ApiError from "../../error/ApiError";
-import { networkOptions } from "../../config/config";
+import ApiError from "../../error/ApiError.js";
+import { networkOptions } from "../../config/config.js";
 
 let allowedOrigins: string[] = [];
 

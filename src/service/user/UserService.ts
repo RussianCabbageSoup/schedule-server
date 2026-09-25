@@ -1,7 +1,7 @@
-import ApiError from "../../error/ApiError";
-import { db } from "../../prisma/db";
-import { comparePassword, hashPassword } from "../../utils/auth";
-import AuthService from "./AuthService";
+import ApiError from "../../error/ApiError.js";
+import { db } from "../../prisma/db.js";
+import { comparePassword, hashPassword } from "../../utils/auth.js";
+import AuthService from "./AuthService.js";
 import type { Response } from "express";
 
 class UserService {
