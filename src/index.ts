@@ -1,18 +1,20 @@
 import "dotenv/config";
 import express from "express";
-import cors from "cors";
 import router from "./routes/index.js";
 import errorHandler from "./middleware/error/errorHandler.js";
 import notFound from "./middleware/error/notFound.js";
 import { networkOptions } from "./config/config.js";
 import checkEnv from "./checkServer/checkEnv.js";
+import cookieParser from "cookie-parser";
+import cors from "./middleware/cors/cors.js";
 
 const PORT = networkOptions.PORT;
 
 const app = express();
 
-app.use(cors({ credentials: true }));
+app.use(cors);
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded( { extended: true }));
 app.get('/', (req, res) => res.status(200).json({ message: 'OK' }));
 app.use('/api', router);

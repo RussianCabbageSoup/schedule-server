@@ -1,6 +1,7 @@
-export const validateString = (str: string): string | null => {
+export const validateString = (str: string, trimmed = true): string | null => {
     if (!str || typeof str !== 'string' || !str.trim()) return null;
-    return str.trim();
+    if (trimmed) return str.trim();
+    return str;
 };
 
 interface ValidatorResponse {
