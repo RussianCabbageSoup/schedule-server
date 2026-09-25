@@ -3,7 +3,10 @@ import postgres from '@prisma/orm-postgres/runtime';
 import type { Contract } from './contract.d';
 import contractJson from './contract.json' with { type: 'json' };
 
+
 export const db = postgres<Contract>({
   contractJson,
   url: process.env.LOCAL_DATABASE_URL!,
 });
+
+export type Transaction = Parameters<Parameters<typeof db.transaction>[0]>[0];

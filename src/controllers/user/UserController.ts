@@ -2,7 +2,6 @@ import type { NextFunction, Request, Response } from "express";
 import UserService from "../../service/user/UserService.js";
 import ApiError from "../../error/ApiError.js";
 import RefreshTokenService from "../../service/user/RefreshTokenService.js";
-import AuthService from "../../service/user/AuthService.js";
 
 class UserController {
     async signUp(req: Request, res: Response, next: NextFunction) {
@@ -32,9 +31,7 @@ class UserController {
         try {
             const refreshToken = req.cookies.refreshToken;
 
-            const user = await RefreshTokenService.verify(refreshToken);
-
-            await AuthService.createSession(user, res);
+            const user = await RefreshTokenService.verify(refreshToken, res);
 
             return res.json({
                 id: user.id,
@@ -50,9 +47,7 @@ class UserController {
         try {
             const { username, password } = req.body;
 
-            const user = await UserService.signIn(username, password);
-
-            await AuthService.createSession(user, res);
+            const user = await UserService.signIn(username, password, res);
 
             return res.json({
                 id: user.id,
