@@ -1,8 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
 import ApiError from "../../error/ApiError";
 import jwt from "jsonwebtoken";
-
-
+import type {} from "../../types/user.js";
 
 export default function checkAuth(req: Request, res: Response, next: NextFunction) {
     try {

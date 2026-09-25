@@ -2,6 +2,7 @@ import type { NextFunction, Request, Response } from "express";
 import UserService from "../../service/user/UserService.js";
 import ApiError from "../../error/ApiError.js";
 import RefreshTokenService from "../../service/user/RefreshTokenService.js";
+import type {} from "../../types/user.js";
 
 class UserController {
     async signUp(req: Request, res: Response, next: NextFunction) {
