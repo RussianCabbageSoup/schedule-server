@@ -18,6 +18,9 @@ const options: CorsOptions = {
         if (!origin) {
             return callback(null, true);
         }
+        if (origin === 'http://localhost:5173') {
+            return callback(null, true);
+        }
         if (allowedOrigins.includes(origin)) {
             return callback(null, true);
         }
