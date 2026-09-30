@@ -54,6 +54,13 @@
                   }
                 }
               },
+              "isGlobal": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/bool@1",
+                  "kind": "scalar"
+                }
+              },
               "userId": {
                 "nullable": false,
                 "type": {
@@ -96,6 +103,9 @@
                 },
                 "id": {
                   "column": "id"
+                },
+                "isGlobal": {
+                  "column": "isGlobal"
                 },
                 "userId": {
                   "column": "userId"
@@ -312,6 +322,15 @@
                     "length": 36
                   }
                 },
+                "isGlobal": {
+                  "codecId": "pg/bool@1",
+                  "default": {
+                    "kind": "literal",
+                    "value": false
+                  },
+                  "nativeType": "bool",
+                  "nullable": false
+                },
                 "userId": {
                   "codecId": "sql/char@1",
                   "nativeType": "character",
@@ -428,7 +447,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "584be966a1522bb6350230d04778e9c837c9201bb4e5f85a3e67484c77bb6f91"
+    "storageHash": "ac1ff884598034dab27099ca88bbcb15d23764487a78aaef3e7bc2e8321ed033"
   },
   "execution": {
     "executionHash": "1cee1bf3e71b7af0e06895b71d70263c92626c0caf9cd312d55c4aad6d4efd41",

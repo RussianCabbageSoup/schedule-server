@@ -16,6 +16,7 @@ export const contract = defineContract({}, ({ field, model, rel }) => {
       userId: field.uuidString(),
       content: field.text().optional(),
       date: field.temporal.timestamp(),
+      isGlobal: field.boolean().default(false),
       createdAt: field.temporal.createdAtString()
     },
   });
