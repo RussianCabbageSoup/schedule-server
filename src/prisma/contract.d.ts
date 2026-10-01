@@ -34,7 +34,7 @@ import type {
 } from '@prisma/orm-postgres/contract/types';
 
 export type StorageHash =
-  StorageHashBase<'ac1ff884598034dab27099ca88bbcb15d23764487a78aaef3e7bc2e8321ed033'>;
+  StorageHashBase<'402707e9d166740f15a9340cfcf16b5d99a7b9f54c4a051cf9a3ae3df53a8bcf'>;
 export type ExecutionHash =
   ExecutionHashBase<'1cee1bf3e71b7af0e06895b71d70263c92626c0caf9cd312d55c4aad6d4efd41'>;
 export type ProfileHash =
@@ -246,7 +246,7 @@ export type FieldOutputTypes = {
       readonly id: Char<36>;
       readonly userId: Char<36>;
       readonly content: CodecTypes['pg/text@1']['output'] | null;
-      readonly date: CodecTypes['pg/timestamp-temporal@1']['output'];
+      readonly date: CodecTypes['pg/timestamp-string@1']['output'];
       readonly isGlobal: CodecTypes['pg/bool@1']['output'];
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
     };
@@ -271,7 +271,7 @@ export type FieldInputTypes = {
       readonly id: CodecTypes['sql/char@1']['input'];
       readonly userId: CodecTypes['sql/char@1']['input'];
       readonly content: CodecTypes['pg/text@1']['input'] | null;
-      readonly date: CodecTypes['pg/timestamp-temporal@1']['input'];
+      readonly date: CodecTypes['pg/timestamp-string@1']['input'];
       readonly isGlobal: CodecTypes['pg/bool@1']['input'];
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
     };
@@ -295,7 +295,7 @@ export type StorageColumnTypes = {
     readonly Note: {
       readonly content: CodecTypes['pg/text@1']['output'] | null;
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
-      readonly date: CodecTypes['pg/timestamp-temporal@1']['output'];
+      readonly date: CodecTypes['pg/timestamp-string@1']['output'];
       readonly id: Char<36>;
       readonly isGlobal: CodecTypes['pg/bool@1']['output'];
       readonly userId: Char<36>;
@@ -320,7 +320,7 @@ export type StorageColumnInputTypes = {
     readonly Note: {
       readonly content: CodecTypes['pg/text@1']['input'] | null;
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
-      readonly date: CodecTypes['pg/timestamp-temporal@1']['input'];
+      readonly date: CodecTypes['pg/timestamp-string@1']['input'];
       readonly id: CodecTypes['sql/char@1']['input'];
       readonly isGlobal: CodecTypes['pg/bool@1']['input'];
       readonly userId: CodecTypes['sql/char@1']['input'];
@@ -355,7 +355,7 @@ export namespace Models {
     id: Char<36>;
     userId: Char<36>;
     content: CodecTypes['pg/text@1']['output'] | null;
-    date: CodecTypes['pg/timestamp-temporal@1']['output'];
+    date: CodecTypes['pg/timestamp-string@1']['output'];
     isGlobal: CodecTypes['pg/bool@1']['output'];
     createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
     user: public_User;
@@ -419,7 +419,7 @@ type ContractBase = Omit<
                 };
                 readonly date: {
                   readonly nativeType: 'timestamp';
-                  readonly codecId: 'pg/timestamp-temporal@1';
+                  readonly codecId: 'pg/timestamp-string@1';
                   readonly nullable: false;
                 };
                 readonly isGlobal: {
@@ -557,7 +557,7 @@ type ContractBase = Omit<
                 readonly nullable: false;
                 readonly type: {
                   readonly kind: 'scalar';
-                  readonly codecId: 'pg/timestamp-temporal@1';
+                  readonly codecId: 'pg/timestamp-string@1';
                 };
               };
               readonly isGlobal: {
