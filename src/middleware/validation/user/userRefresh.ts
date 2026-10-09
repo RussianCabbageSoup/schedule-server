@@ -6,7 +6,7 @@ export default function userRefresh(req: Request, res: Response, next: NextFunct
         const refreshToken = req.cookies.refreshToken;
 
         if (!refreshToken || typeof refreshToken !== 'string') {
-            return next(ApiError.unauthorized('Не авторизован code 0'));
+            return next(ApiError.unauthorized('Не авторизован code пурпурный'));
         }
 
         next();

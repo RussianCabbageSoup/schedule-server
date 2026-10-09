@@ -21,7 +21,7 @@ class UserController {
 
     async checkAuth(req: Request, res: Response, next: NextFunction) {
         try {
-            if (!req.user) return next(ApiError.unauthorized('Не авторизован code 4'));
+            if (!req.user) return next(ApiError.unauthorized('Не авторизован code фиолетовый'));
             return res.json({ username: req.user.username });
         } catch (error) {
             next(error);

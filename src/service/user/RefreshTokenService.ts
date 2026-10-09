@@ -35,7 +35,7 @@ class RefreshTokenService {
                 .first();
 
             if (!candidate) {
-                throw ApiError.unauthorized('Не авторизован code 2.0');
+                throw ApiError.unauthorized('Не авторизован code синий');
             }
 
             if (new Date().toISOString() > candidate.expireAt) {

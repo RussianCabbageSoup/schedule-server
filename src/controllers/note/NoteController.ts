@@ -6,9 +6,9 @@ class NoteController {
         try {
             const { userId, content, date, isGlobal } = req.body;
 
-            await NoteService.create(userId, content, date, isGlobal);
+            const note = await NoteService.create(userId, content, date, isGlobal);
 
-            return res.json({ message: 'заметка создана' });
+            return res.json({ message: 'заметка создана', note });
         } catch (error) {
             next(error);
         }
