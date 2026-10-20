@@ -4,7 +4,7 @@ import ApiError from "../../error/ApiError.js";
 
 const ERP_URL = 'https://erp.pkgh.ru/api/Rasp';
 const ERP_ID_GROUP = 13067;
-const ERP_TIMEOUT = 10000;
+const ERP_TIMEOUT = 30000;
 
 class ScheduleController {
     async get(req: Request, res: Response, next: NextFunction) {
