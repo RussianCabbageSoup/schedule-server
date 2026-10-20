@@ -7,7 +7,7 @@ export default function scheduleGet(req: Request, res: Response, next: NextFunct
         const { day } = req.query;
 
         if (typeof day !== 'string') {
-            return next(ApiError.badRequest('Поле day должно быть формата YYYY-MM-DD'));
+            return next(ApiError.badRequest('Поле day должно быть строкой'));
         }
 
         const validatedDay = validateDateOnly(day);

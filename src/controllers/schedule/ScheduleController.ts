@@ -19,7 +19,7 @@ class ScheduleController {
             return res.json(data);
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                return next(ApiError.internal('Не удалось получить расписание'));
+                return next(ApiError.internal(error.message));
             }
             next(error);
         }
