@@ -57,6 +57,32 @@ export const validateDate = (date: string): string | null => {
     return d.toISOString();
 };
 
+export const validateDateOnly = (date: string): string | null => {
+    if (!date || typeof date !== 'string') return null;
+
+    const trimmed = date.trim();
+    if (!trimmed) return null;
+
+    const DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/;
+    if (!DATE_REGEX.test(trimmed)) return null;
+
+    const [yStr, mStr, dStr] = trimmed.split('-');
+    const y = Number(yStr);
+    const m = Number(mStr);
+    const d = Number(dStr);
+
+    const dateObj = new Date(Date.UTC(y, m - 1, d));
+    if (
+        dateObj.getUTCFullYear() !== y ||
+        dateObj.getUTCMonth() + 1 !== m ||
+        dateObj.getUTCDate() !== d
+    ) {
+        return null;
+    }
+
+    return trimmed;
+};
+
 export const validateBool = (bool: boolean): boolean | null => {
     if (typeof bool !== 'boolean') return null;
     return bool;
