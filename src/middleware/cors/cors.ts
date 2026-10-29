@@ -2,14 +2,20 @@ import cors, { type CorsOptions } from "cors";
 import ApiError from "../../error/ApiError.js";
 import { networkOptions } from "../../config/config.js";
 
-let allowedOrigins: string[] = [];
+const parseOrigins = (value?: string): string[] =>
+    value?.split(',').map(origin => origin.trim()).filter(Boolean) ?? [];
 
-if (process.env.ALLOWED_ORIGIN) {
-    allowedOrigins.push(process.env.ALLOWED_ORIGIN);
-}
+const allowedOrigins = new Set<string>([
+    ...parseOrigins(process.env.ALLOWED_ORIGINS),
+    ...parseOrigins(process.env.ALLOWED_ORIGIN), // устаревшая переменная, оставлена для совместимости
+    'http://localhost:5173',   // Vite dev
+    'https://localhost',       // Capacitor Android (androidScheme: https)
+    'http://localhost',        // Capacitor Android (androidScheme: http)
+    'capacitor://localhost',   // Capacitor iOS
+]);
 
 if (process.env.NODE_ENV === 'development') {
-    allowedOrigins.push(...networkOptions.corsOrigins);
+    networkOptions.corsOrigins.forEach(origin => allowedOrigins.add(origin));
 }
 
 
@@ -18,10 +24,7 @@ const options: CorsOptions = {
         if (!origin) {
             return callback(null, true);
         }
-        if (origin === 'http://localhost:5173') {
-            return callback(null, true);
-        }
-        if (allowedOrigins.includes(origin)) {
+        if (allowedOrigins.has(origin)) {
             return callback(null, true);
         }
         console.warn(`CORS Blocked: ${origin}`);
